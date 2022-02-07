@@ -37,7 +37,7 @@ optdepends=(
     "bash-completion: bash completion"
     "zsh: zsh completion"
     "devtools: aur-chroot"
-     "vifm: default pager"
+    "vifm: default pager"
 )
 
 prepare() {
