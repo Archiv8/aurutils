@@ -1,0 +1,11 @@
+# Disable shellcheck rules that produce false positives in this file. Repository
+# rules should be added to the .shellcheckrc file located in the
+# repository root directory, see https://github.com/koalaman/shellcheck/wiki/Ignore
+# and https://archiv8.github.io/contributing/tools/shellcheck for further information.
+
+# Disable:
+#   - SC2304, "foo appears unused. Verify it or export it."
+#     https://github.com/koalaman/shellcheck/wiki/SC2034
+#   - SC2154, "var is referenced but not assigned."
+#     https://github.com/koalaman/shellcheck/wiki/SC2154
+disable=SC2034,SC2154
