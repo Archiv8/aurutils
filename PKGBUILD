@@ -6,27 +6,39 @@
 # and https://archiv8.github.io for further information.
 
 # Maintainer: Alad Wenter <https://github.com/AladW>
+# Co-Maintainer: Cedric Girard <cgirard [dot] archlinux [at] valinor [dot] fr>
 # Contributor: Ross Clark <https://github.com/archiv8/aurutils>
 
 pkgname=aurutils
 pkgver=4.4
 pkgrel=1
-pkgdesc='Helper tools for the arch user repository'
-url='https://github.com/AladW/aurutils'
-arch=('any')
-license=('custom:ISC')
-source=("$url/releases/download/$pkgver/$pkgname-$pkgver.tar.gz")
+pkgdesc="Helper tools for the arch user repository"
+url="https://github.com/AladW/aurutils"
+arch=("any")
+license=("custom:ISC")
+source=(
+    "$pkgname-$pkgver.tar.gz::${url}/archive/refs/tags/$pkgver.tar.gz"
+)
 changelog=aurutils.changelog
 install=aurutils.install
-sha512sums=('86a80ae8327aeeb4932c7709767b2be5fae19281a5bcc78b2b10197e97c32afb'
-            'SKIP'
-            'a2c32b0dba4da40b83ff31cce48a00faed5ed2f663c060a865d31caeb1e4ed39')
-depends=('git' 'jq' 'pacutils' 'curl' 'expect')
-makedepends=('signify')
-optdepends=('bash-completion: bash completion'
-            'zsh: zsh completion'
-            'devtools: aur-chroot'
-            'vifm: default pager')
+sha512sums=(
+    "bfecaf8c550b15482054bcafaa7785ef9aa1de8b378a3c680af5570ef11629a8f51c971eb886615a85c64227266cd9e1993963b77bb210b11000f4ed71a1d62d"
+)
+depends=(
+    "git"
+    "jq"
+    "pacutils"
+    "curl"
+    "expect"
+    "gawk"
+)
+# makedepends=()
+optdepends=(
+    "bash-completion: bash completion"
+    "zsh: zsh completion"
+    "devtools: aur-chroot"
+     "vifm: default pager"
+)
 
 prepare() {
     cd "$pkgname-$pkgver" || exit
