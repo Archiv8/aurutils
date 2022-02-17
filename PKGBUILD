@@ -22,7 +22,7 @@ source=(
 changelog=aurutils.changelog
 install=aurutils.install
 sha512sums=(
-    "bfecaf8c550b15482054bcafaa7785ef9aa1de8b378a3c680af5570ef11629a8f51c971eb886615a85c64227266cd9e1993963b77bb210b11000f4ed71a1d62d"
+    "089b0860ce104b057cef262aa8f14bf66c6d20b1fcb61cfd42d35cb0b1bb19064c047645ccc2e7aaee37b6d66efeb857bbb0a4fd6222d50c666aebd4ce0af79c"
 )
 depends=(
     "git"
