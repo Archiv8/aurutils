@@ -10,7 +10,7 @@
 # Contributor: Ross Clark <https://github.com/archiv8/aurutils>
 
 pkgname=aurutils
-pkgver=4.4
+pkgver=6.1
 pkgrel=1
 pkgdesc="Helper tools for the arch user repository"
 url="https://github.com/AladW/aurutils"
