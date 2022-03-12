@@ -28,6 +28,7 @@ sha512sums=(
     "ed31372cd615b2a0b4e3a60525d44b8e78faef3545283107dcdd490dbcacd8da0028beffe6a94c173ca94729138c50b1197d43727224e84f8d5717c7dfceb873"
 )
 depends=(
+    # Official Arch Linux repositories
     "curl"
     "expect"
     "gawk"
@@ -37,6 +38,7 @@ depends=(
 )
 # makedepends=()
 optdepends=(
+    # Official Arch Linux repositories
     "bash-completion: bash completion"
     "devtools: aur-chroot"
     "vifm: default pager"
