@@ -4,13 +4,16 @@
 # rules should be added to the .shellcheckrc file located in the
 # repository root directory, see https://github.com/koalaman/shellcheck/wiki
 # and https://archiv8.github.io for further information.
+# ToDo: Add files: user documentation
+# Todo: Add files: tooling
+# Todo: Fix namcap warnings and errors
 
 # Maintainer: Alad Wenter <https://github.com/AladW>
 # Co-Maintainer: Cedric Girard <cgirard [dot] archlinux [at] valinor [dot] fr>
 # Contributor: Ross Clark <https://github.com/archiv8/aurutils>
 
 pkgname=aurutils
-pkgver=6.1
+pkgver=8.2
 pkgrel=1
 pkgdesc="Helper tools for the arch user repository"
 url="https://github.com/AladW/aurutils"
@@ -22,22 +25,22 @@ source=(
 changelog=aurutils.changelog
 install=aurutils.install
 sha512sums=(
-    "089b0860ce104b057cef262aa8f14bf66c6d20b1fcb61cfd42d35cb0b1bb19064c047645ccc2e7aaee37b6d66efeb857bbb0a4fd6222d50c666aebd4ce0af79c"
+    "ed31372cd615b2a0b4e3a60525d44b8e78faef3545283107dcdd490dbcacd8da0028beffe6a94c173ca94729138c50b1197d43727224e84f8d5717c7dfceb873"
 )
 depends=(
-    "git"
-    "jq"
-    "pacutils"
     "curl"
     "expect"
     "gawk"
+    "git"
+    "jq"
+    "pacutils"
 )
 # makedepends=()
 optdepends=(
     "bash-completion: bash completion"
-    "zsh: zsh completion"
     "devtools: aur-chroot"
     "vifm: default pager"
+    "zsh: zsh completion"
 )
 
 prepare() {

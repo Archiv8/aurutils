@@ -1,3 +1,168 @@
+## 8.2
+
+* `aur-srcver`
+  + add separator before first failed package
+
+* `aur-fetch`
+  + handle empty `git` repositories (#959)
+
+* `man7`
+  + remove `aurvcs.7`, move `aur-sync-devel` to `examples`
+
+## 8.1
+
+* `aur-srcver`
+  + fix directory to source the build script from (#958)
+
+## 8
+
+* `aur-chroot`
+
+The `aur-chroot` command-line was changed so that `--create`, `--build` and
+`--update` can be used in a single command. Command-line arguments are now
+exclusively used for packages passed to `mkarchroot` and `arch-nspawn`.
+To set `makechrootpkg` options, the new `--margs` and `--cargs` options are
+available. As `aur-build --margs`, these take a comma-delimited string and
+can be specified multiple times. (Issues: #950, #807)
+
+The `--packagelist` command is now deprecated. The container path can be
+retrieved with the `--path` option, e.g for use with `makepkg --config`.
+
+* `aur-build`
+  + Consider all repositories (`Usage = Install`) for local repository upgrade (#956)
+
+* `aur-srcver`
+  + add `--buildscript`
+  + deprecate `-E` / `--env`
+    - `get_full_version` from `libmakepkg` is now used after running `makepkg`
+  + take arguments from `stdin` if `-` is specified
+
+* `aurvcs.7`
+  + run `aur-fetch` and `aur-view` before `aur-srcver`
+  + sample code renamed to `aur-sync-devel`
+
+## 7.2
+
+* `aur-search`
+  + add `OptDepends` to `--info` output (#945)
+  + handle empty keywords in `--info` output (#946)
+
+* `aur-depends`
+  + add `--optdepends` (#945)
+
+* `aur-sync`
+  + add `--optdepends` (#945)
+
+## 7.1
+
+* `aur-build`
+  + pass --nocheck to chroot (#942)
+
+* `aur-sync`
+  + avoid off-by-one in ninja build summary (#940)
+
+* `aur-query`
+  + do not abort if `-t` is unspecified (#938)
+
+## 7
+
+This release adds optional support for the `ninja` build system. If the
+`AUR_SYNC_USE_NINJA` environment variable is set to a positive value,
+`aur-sync` will generate `build.ninja` where each target has an `aur-build`
+command-line. This allows to continue building a series of packages when
+several failed, with the maximum of failed targets controlled by the `-k` /
+`--keep-going` option.  On failure, a summary of successful ("OK") and failed
+("FAIL") package builds is printed. The `--no-build` option in turn only
+generates `build.ninja`, and prints the corresponding directory to `stdout`.
+
+The logic to generate `build.ninja` files is exposed in the `aur-sync--ninja`
+script. It can be used with other `aur` programs that output `pkgbase
+depends_pkgbase` pairs, for example:
+
+  $ aur depends --graph "$@" | aur sync--ninja "$PWD" -- aur build
+
+When running `ninja` on the resulting file, each successfully built `pkgbase`
+will result in a `pkgbase.stamp` file. If the corresponding `PKGBUILD` is
+modified, it will be marked for rebuilding by `ninja`. This can for example be
+used for a git repository which hosts multiple `PKGBUILD` directories.
+
+## 6.4
+
+* `aur-depends`
+  - add `--graph`
+  - checkdepends are now removed during dependency resolution, not afterwards (#882)
+
+## 6.3
+
+* `aur-sync`
+  - `--ignore-file` now supports per-repository sections (INI-style)
+  - do not ignore targets when specified on the command-line
+
+## 6.2
+
+* `aur-pkglist`
+  - add `-v` / `--verify` (verifies published sha256sums)
+
+* `aur-repo-filter`
+  - add repository to dependency messages ("dependency foo satisfied by repo/bar")
+  - deduplicate results on stdout
+
+## 6.1
+
+* `aur-search`
+  - do not print additional messages on errors or no results
+
+* `aur-query`
+  - add `-a` alias for `--any`
+  - add missing newline in case of errors (`jq -r`)
+
+## 6
+
+In previous versions, `aur search` would display an intersection of search
+results, the symmetric difference with `-a` (bug), and the concatenation with
+`-r`. (#918)
+
+`aur search -a` now correctly returns the union, and the `-r` output is
+processed with jq(1) to return the intersection by default, or the union (with
+duplicates removed) with `-a`. This processing is done because the RPC
+interface as of aurweb 6.0.11 does not expose set operations, and so
+`aur-search` performs one search for each argument. `aur search --json` was
+added as an alias to `--raw`, and the latter option is now deprecated.
+
+The implementation is done in `aur-query`, which now takes the intersection of
+search results by default. The union can be taken with `aur query --any`, or
+unprocessed results shown with `-r` or `--raw`. In each case, the output is
+newline delimited (JSON Lines, `jq -r`). If the search completed without
+results, `aur-query` will either exit with status 0 (if no request resulted in
+an error), 1 (if the `-e` option was specified), or 2 (if at least one request
+resulted in an error).
+
+`AUR_QUERY_RPC_SPLITNO_POST` received bug fixes (#920), and the default has
+been reduced to 500 after experiencing issues with a larger number of
+arguments. Users looking to use `aur-query -t info` with a very large number
+of arguments should instead consider `aur pkglist --info`.
+`AUR_QUERY_RPC_PARALLEL` also received several bugfixes.
+
+## 5
+
+* `aur-srcver`
+  + add `-E` / `--env` (#898)
+
+* `aur-query`
+  + support HTTP POST for info-type requests
+  + use `aurutils` user agent (`curl -A`)
+
+* `aur-pkglist`
+  + use `aurutils` user agent (`curl -A`)
+
+* `aur-repo-filter`
+  + add `--config` to set pacman configuration
+
+## 4.4
+
+* `aur-sync`
+  + fix regressions with `--ignore` from 4.3 release
+
 ## 4.3
 
 * `aur-build`
