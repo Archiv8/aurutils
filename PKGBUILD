@@ -4,13 +4,16 @@
 # rules should be added to the .shellcheckrc file located in the
 # repository root directory, see https://github.com/koalaman/shellcheck/wiki
 # and https://archiv8.github.io for further information.
-# ToDo: Add files: user documentation
-# Todo: Add files: tooling
-# Todo: Fix namcap warnings and errors
+# shellcheck disable=SC2034,SC2154
+# ToDo: Add files: User documentation
+# ToDo: Add files: Tooling
+# FixMe: Namcap warnings and errors
 
 # Maintainer: Alad Wenter <https://github.com/AladW>
 # Co-Maintainer: Cedric Girard <cgirard [dot] archlinux [at] valinor [dot] fr>
 # Contributor: Ross Clark <https://github.com/archiv8/aurutils>
+
+
 
 pkgname=aurutils
 pkgver=8.2
