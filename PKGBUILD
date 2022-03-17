@@ -14,7 +14,6 @@
 # Contributor: Ross Clark <https://github.com/archiv8/aurutils>
 
 
-
 pkgname=aurutils
 pkgver=8.2
 pkgrel=1
