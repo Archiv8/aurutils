@@ -14,7 +14,7 @@
 
 
 pkgname=aurutils
-pkgver=8.2
+pkgver=9.1.1
 pkgrel=1
 pkgdesc="Helper tools for the arch user repository"
 url="https://github.com/AladW/aurutils"

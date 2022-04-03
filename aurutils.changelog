@@ -1,3 +1,58 @@
+## 9.1
+
+`aur-build` now uses `setpriv(1)` to run unprivileged commands (`makepkg`, `gpg`,
+`repo-add`) when `AUR_ASROOT` is combined with `--user`. This change has no
+effect when running `aur-build` as a regular user.
+
+Usage:
+
+  $ sudo env AUR_ASROOT=1 aur build --chroot --user <build_user> ...
+
+The above works with `--chroot` (`makechrootpkg -U`). Environment variables in
+the root environment are preserved for user commands, similar to `runuser -c`.
+Host builds using `makepkg --syncdeps` to install dependencies require further
+configuration.
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ WARNING!                                                                     │
+│                                                                              │
+│ Running `aur-build` as root is experimental and disabled by default. If your │
+│ install breaks, you get to keep both pieces.                                 │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+## 9
+
+* `examples`
+  + add `chroot-batch`
+
+* `lib`
+  + add `aur-build--pkglist`
+
+* `aur-build`
+  + add `--dry-run`
+  + redirect `makepkg -od` output (`--pkgver`) to stderr
+  + sign existing packages (#967)
+
+* `aur-fetch`
+  + add `--no-pager` to the `git log` command (#969)
+  + `--existing`: clone instead of skip targets if they exist
+
+* `aur-sync`
+  + redirect `aur-fetch` output to stderr (#974)
+
+## 8.3
+
+* `aur-fetch`
+  + add `--revision`
+  + add `--no-patch`
+
+* `aur-repo`
+  + add `--field`
+
+* `examples`
+  + add `vercmp-devel`, `sync-list`
+  + rename `aur-sync-devel` to `sync-devel`
+
 ## 8.2
 
 * `aur-srcver`
@@ -39,7 +94,7 @@ retrieved with the `--path` option, e.g for use with `makepkg --config`.
 
 * `aurvcs.7`
   + run `aur-fetch` and `aur-view` before `aur-srcver`
-  + sample code renamed to `aur-sync-devel`
+  + sample code remaned to `aur-sync-devel`
 
 ## 7.2
 
@@ -298,7 +353,7 @@ subsituted in `aur`.
 
 * `aur-chroot`
   + add `--create`
-    - separate mode which runs `mkarchroot` with packages taken from the command-line
+    - seperate mode which runs `mkarchroot` with packages taken from the command-line
     - defaults to base-devel (and multilib-devel, if applicable) if no packages are specified
     - `--update` no longer runs `mkarchroot`
   + `--packagelist` now uses `makepkg.conf` inside the container
