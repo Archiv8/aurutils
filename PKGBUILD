@@ -26,7 +26,7 @@ source=(
 changelog=aurutils.changelog
 install=aurutils.install
 sha512sums=(
-    "ed31372cd615b2a0b4e3a60525d44b8e78faef3545283107dcdd490dbcacd8da0028beffe6a94c173ca94729138c50b1197d43727224e84f8d5717c7dfceb873"
+    "cef623b2fc7c4a4a417d6c5ab26a7d2b8db071c8d38f0189460d216f1e1a5a4d761d72729b42a5a48d1b3045684476bbbd372eb411abccf462a7f3d26b9b33f5"
 )
 depends=(
     # Official Arch Linux repositories
