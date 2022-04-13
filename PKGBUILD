@@ -14,7 +14,7 @@
 
 
 pkgname=aurutils
-pkgver=9.1.1
+pkgver=9.5
 pkgrel=1
 pkgdesc="Helper tools for the arch user repository"
 url="https://github.com/AladW/aurutils"
@@ -26,7 +26,7 @@ source=(
 changelog=aurutils.changelog
 install=aurutils.install
 sha512sums=(
-    "cef623b2fc7c4a4a417d6c5ab26a7d2b8db071c8d38f0189460d216f1e1a5a4d761d72729b42a5a48d1b3045684476bbbd372eb411abccf462a7f3d26b9b33f5"
+    "dbafadb5011b8b8576066510276343de5266850703d84bf8f58866d84deb64afc502c7499e929e3f1cdfccbb47ce0fcb588469f643bc2df99e097eb190dc511b"
 )
 depends=(
     # Official Arch Linux repositories
@@ -44,6 +44,7 @@ optdepends=(
     "devtools: aur-chroot"
     "vifm: default pager"
     "zsh: zsh completion"
+    "ninja: aur-sync ninja support"
 )
 
 prepare() {

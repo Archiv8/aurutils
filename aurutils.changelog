@@ -1,3 +1,41 @@
+## 9.6
+
+* `aur-pkglist`
+  + add `AUR_METADEST` (directory where metadata archives are stored)
+  + add `--quiet`
+
+* `aur-fetch`
+  + write `git-merge` to `results_file` if the command is run
+
+## 9.5
+
+* `aur-build`
+  + add `--results-append`
+  + write results file as build user
+
+* `aur-query`
+  + support `--type=suggest`
+
+## 9.4
+
+* `aur-build`
+  + revert "retrieve local repository before setting --chroot paths"
+
+## 9.3
+
+* `examples`
+  + rework `sync-list`
+
+## 9.2
+
+* `aur-build`
+  + deprecate `--results`
+  + retrieve local repository before setting `--chroot` paths
+  + unset `PKGEXT` when using `--chroot`
+
+* `aur-search`
+  + use OSC8 terminal hyperlinks (#849)
+
 ## 9.1
 
 `aur-build` now uses `setpriv(1)` to run unprivileged commands (`makepkg`, `gpg`,
@@ -595,7 +633,7 @@ were part of the 3.0.0 release tarball, but not the 3.0.0 tag. The 3.0.1 tag now
 
 ## 2.1.0 - 2019-01-16
 
-* `aur-build`
+* `aur-build` 
   + `--build-command` now works correctly
   + add `--run-pkgver` to run `makepkg -od` before `makepkg --pkglist` (relevant to VCS packages)
 * `aur-depends`
@@ -611,7 +649,7 @@ were part of the 3.0.0 release tarball, but not the 3.0.0 tag. The 3.0.1 tag now
 ## 2.0.1 - 2019-01-11
 
 * `aur-build`
-  + do not export PKGDEST for non-chroot builds (#498)
+  + do not export PKGDEST for non-chroot builds (#498)                               
   + add --build-command (#498)
   + man page updates (#217)
 * `aur-sync`
@@ -645,7 +683,7 @@ were part of the 3.0.0 release tarball, but not the 3.0.0 tag. The 3.0.1 tag now
 * `aur-rpc` *(new)*
   + send `GET` requests to `aurweb`
   + use `wget` instead of `aria2c` or `curl`
-* `aur-search`
+* `aur-search` 
   + add `License`, `Keyword`, `Depends`, `MakeDepends` and `CheckDepends` fields
   + add `depends`, `makedepends` search (#432)
   + add popularity to `brief` output (#420)
@@ -673,3 +711,4 @@ were part of the 3.0.0 release tarball, but not the 3.0.0 tag. The 3.0.1 tag now
   + add `bash` completion (requires: `bash-completion`)
   + add `zsh` completion in a later release (#458)
 * Fixes for known issues in `1.5.3`.
+
