@@ -1,6 +1,6 @@
 pkgbase = aurutils
 	pkgdesc = Helper tools for the arch user repository
-	pkgver = 9.5
+	pkgver = 9.6
 	pkgrel = 1
 	url = https://github.com/AladW/aurutils
 	install = aurutils.install
@@ -18,7 +18,7 @@ pkgbase = aurutils
 	optdepends = vifm: default pager
 	optdepends = zsh: zsh completion
 	optdepends = ninja: aur-sync ninja support
-	source = aurutils-9.5.tar.gz::https://github.com/AladW/aurutils/archive/refs/tags/9.5.tar.gz
-	sha512sums = dbafadb5011b8b8576066510276343de5266850703d84bf8f58866d84deb64afc502c7499e929e3f1cdfccbb47ce0fcb588469f643bc2df99e097eb190dc511b
+	source = aurutils-9.6.tar.gz::https://github.com/AladW/aurutils/archive/refs/tags/9.6.tar.gz
+	sha512sums = ab390f02e5b85ffeb6ddbb81eb145aff6cee26764b291970383c6faafad2909047fc1dcf8cc89fdee207c30bb0648422833d0f1211035a25218f8fcce1fe079b
 
 pkgname = aurutils

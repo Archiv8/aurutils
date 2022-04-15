@@ -1,3 +1,11 @@
+## 10
+
+* `aur-build`
+  + use `AUR_PACMAN_AUTH` as elevation command (prior: `PACMAN_AUTH`)
+
+* `aur-chroot`
+  + use `AUR_PACMAN_AUTH` as elevation command (prior: `PACMAN_AUTH`)
+
 ## 9.6
 
 * `aur-pkglist`
@@ -711,4 +719,3 @@ were part of the 3.0.0 release tarball, but not the 3.0.0 tag. The 3.0.1 tag now
   + add `bash` completion (requires: `bash-completion`)
   + add `zsh` completion in a later release (#458)
 * Fixes for known issues in `1.5.3`.
-
