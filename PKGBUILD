@@ -16,7 +16,7 @@
 
 
 pkgname=aurutils
-pkgver=9.6
+pkgver=10b
 pkgrel=1
 pkgdesc="Helper tools for the arch user repository"
 url="https://github.com/AladW/aurutils"
@@ -28,7 +28,7 @@ source=(
 changelog=aurutils.changelog
 install=aurutils.install
 sha512sums=(
-    "ab390f02e5b85ffeb6ddbb81eb145aff6cee26764b291970383c6faafad2909047fc1dcf8cc89fdee207c30bb0648422833d0f1211035a25218f8fcce1fe079b"
+    "190b5cb3c0fed6efad9f15b83c87dea269ba645c320e91e27d8ae111c183949a602cfd8e75079426719986dbcee1f85d709155dde1ae2e1d87433b32b12e56d1"
 )
 depends=(
     # Official Arch Linux repositories
